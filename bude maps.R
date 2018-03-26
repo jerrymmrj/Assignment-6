@@ -13,7 +13,9 @@ watercolor <- get_map("Bude", maptype = "watercolor", zoom = 15)
 ggmap(watercolor)
 
 ## marked road map, crooklets beach, cricket grounds, bude sea pool, summerleaze beach
-
+## add the Edgcumbe Hotel and Hebasca Hotel
+#EH <- geocode("Edgcumbe Hotel")
+#HH <-geocode("Hebasca")
 ggmap(map) +
   geom_point(
     aes(x = -4.553962 , y = 50.835),
@@ -26,9 +28,18 @@ ggmap(map) +
     color = "blue", size = 3)+
   geom_point(
     aes(x = -4.551349, y = 50.830540),
-    color = "red", size = 3)
+    color = "red", size = 3)+
+  geom_point(
+    aes(x = -4.548689, y = 50.83139),
+    color = "pink", size =3)+
+  geom_point(
+    aes(x = -4.54328, y = 50.83491),
+    color = "black", size =3
+  )
 
 ## watercolor marked map, crooklets beach, cricket grounds, bude sea pool, summerleaze beach
+## add The the Edgcumbe Hotel and Hebasca Hotel
+
 
 ggmap(watercolor) +
   geom_point(
@@ -42,12 +53,19 @@ ggmap(watercolor) +
     color = "blue", size = 3)+
   geom_point(
     aes(x = -4.551349, y = 50.830540),
-    color = "red", size = 3)
+    color = "red", size = 3)+
+  geom_point(
+    aes(x = -4.548689, y = 50.83139),
+    color = "pink", size =3)+
+  geom_point(
+    aes(x = -4.54328, y = 50.83491),
+    color = "black", size =3
+  )
 
 ## route
 from <- "Bude North Cornwall Cricket Club"
 to <- "The Barrell at Bude"
-route_df <- route(from, to, structure = "route")
+route_df <- route(from, to, mode="walking", structure = "route")
 ggmap(map) +
   geom_point(
     aes(x = -4.553165 , y = 50.832584),
@@ -63,7 +81,7 @@ ggmap(map) +
 ## route on watercolor map
 from <- "Bude North Cornwall Cricket Club"
 to <- "The Barrell at Bude"
-route_df <- route(from, to, structure = "route")
+route_df <- route(from, to, mode="walking", structure = "route")
 ggmap(watercolor) +
   geom_point(
     aes(x = -4.553165 , y = 50.832584),

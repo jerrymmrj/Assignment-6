@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(ggmap)
 library(tidyverse)
 library(devtools)
@@ -19,22 +19,22 @@ library(devtools)
 
 ## Road map
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 map <- get_googlemap(center = c(-4.5437, 50.8266), zoom = 15)
 ggmap(map)
 ```
 
 ## Watercolor Map
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 watercolor <- get_map("Bude", maptype = "watercolor", zoom = 15)
 ggmap(watercolor)
 ```
 
 ## Marked road map
-### Crooklets beach, Cricket grounds, Bude sea pool, Summerleaze beach
+### Crooklets beach, Cricket grounds, Bude sea pool, Summerleaze beach, Edgcumbe Hotel and Hebasca Hotel
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 ggmap(map) +
   geom_point(
     aes(x = -4.553962 , y = 50.835),
@@ -47,13 +47,19 @@ ggmap(map) +
     color = "blue", size = 3)+
   geom_point(
     aes(x = -4.551349, y = 50.830540),
-    color = "red", size = 3)
+    color = "red", size = 3)+
+  geom_point(
+    aes(x = -4.548689, y = 50.83139),
+    color = "pink", size =3)+
+  geom_point(
+    aes(x = -4.54328, y = 50.83491),
+    color = "black", size =3)
 ```
 
 ## Watercolor marked map
-### crooklets beach, cricket grounds, bude sea pool, summerleaze beach
+### crooklets beach, cricket grounds, bude sea pool, summerleaze beach,Edgcumbe Hotel and Hebasca Hotel
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 ggmap(watercolor) +
   geom_point(
     aes(x = -4.553962 , y = 50.835),
@@ -66,14 +72,20 @@ ggmap(watercolor) +
     color = "blue", size = 3)+
   geom_point(
     aes(x = -4.551349, y = 50.830540),
-    color = "red", size = 3)
+    color = "red", size = 3)+
+  geom_point(
+    aes(x = -4.548689, y = 50.83139),
+    color = "pink", size =3)+
+  geom_point(
+    aes(x = -4.54328, y = 50.83491),
+    color = "black", size =3)
 ```
 
 ## Route
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 from <- "Bude North Cornwall Cricket Club"
 to <- "The Barrell at Bude"
-route_df <- route(from, to, structure = "route")
+route_df <- route(from, to, mode="walking",structure = "route")
 ggmap(map) +
   geom_point(
     aes(x = -4.553165 , y = 50.832584),
@@ -88,10 +100,10 @@ ggmap(map) +
 ```
 
 ## Route on watercolor map
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 from <- "Bude North Cornwall Cricket Club"
 to <- "The Barrell at Bude"
-route_df <- route(from, to, structure = "route")
+route_df <- route(from, to, mode = "walking", structure = "route")
 ggmap(watercolor) +
   geom_point(
     aes(x = -4.553165 , y = 50.832584),
@@ -106,16 +118,13 @@ ggmap(watercolor) +
 ```
 
 ## Crooklets Beach
-
 ![](crookletsbeach.jpg)
-
 Crooklets beach is great for experienced surfers. Be aware of submerged rocks at high tide though. This beach has a large parking lot, a playground, skate park, a beach cafe and showers and has lifeguards on duty. 
 
 https://www.visitcornwall.com/beaches/lifeguards-seasonal/north-coast/bude/crooklets-beach
 
 ## Bude North Cornwall Cricket Club
-
-![](cricket.jpg)
+![](http://s3.amazonaws.com/medias.photodeck.com/dec62d31-906a-4315-9e6e-1b27c873f10a/SAB6149_xlarge.jpg)
 
 Bude North Cornwall Cricket Club is on the cliff overlooking the ocean. It was founded in 1870 and has hosted cricket matches as well as hockey and tennis matches. Now, it hosts cricket teams from around the world. 
 
@@ -124,23 +133,30 @@ http://budecc.play-cricket.com
 ## Bude Sea Pool
 
 ![](seapool.jpg)
-
 Bude Sea Pool is on the South West Coast Path, above Summerleaze Beach. It provides a safer environment for swimmers, as it is enclosed. However, it is a natural environment so there are still sharp rocks and the bottom is slippery. 
 
 - http://www.budeseapool.org/frequently-asked-questions/
   
 ## Summerleaze Beach
-  
 ![](summerleaze.jpg)
-
 Summerleaze Beach is located only 5 minutes from the center of Bude. Is has a large breakwater with a tower that protects the harbour and the mouth of the Bude canal with a lock gate. 
 
 - https://www.cornwall-beaches.co.uk/north-cornwall/summerleaze.htm
 
 ## Barrel at Bude
-
 ![](barrelatbude.jpg)
-
 The Barrel at Bude is the second largest micropub to open in Cornwall. Its in one of the oldest cottages and in the center of Bude. The bar insisde is made from local beach hut timbers that were destroyed in a winter storm. 
 
 - http://www.micropubassociation.co.uk/micropubs/the-barrel-at-bude/
+
+##Edgcumbe Hotel 
+
+![](https://www.theweddingsecret.co.uk/img/uploads/pageimage/57628b25ea2a8_Untitled_4.jpg)
+Edgcumbe Hoteal is a beach style B&B, with the look and feel of a small hotel with the heart and soul of a family run business.
+
+
+
+##Hebasca Hotel
+![](https://i.pinimg.com/originals/6f/1f/f6/6f1ff69ce3abb09118813f7c608ea53d.jpg)
+
+Hebasca Hotel features 23 super-slick bedrooms, each of which has the individual character you would expect from a luxury hotel in Cornwall. Contemporary yet rich and comfortable. 
